@@ -3,147 +3,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BENZO MOTORS | Join The Elite</title>
-    <!-- Подключение Tailwind CSS -->
-    <script src="https://tailwindcss.com"></script>
-    <!-- Подключение премиальных шрифтов -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <title>BENZO MOTORS | Твой актив доминирования</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #050505;
+            --card-bg: #0d0d0d;
+            --gold: #D4AF37;
+            --gold-bright: #FFD700;
+            --emerald: #00FF41;
+            --text: #ffffff;
+            --text-dim: #a0a0a0;
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
+            background-color: var(--bg);
+            color: var(--text);
             font-family: 'Inter', sans-serif;
-            background-color: #000000;
+            overflow-x: hidden;
+            line-height: 1.6;
         }
-        .font-luxury {
+
+        h1, h2, h3 {
             font-family: 'Syne', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -1px;
         }
-        /* Эффект неонового изумрудного свечения */
-        .neon-glow:hover {
-            box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
-            border-color: #00FF41;
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        /* --- Header --- */
+        header {
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        /* Эффект золотого свечения для главной кнопки */
-        .gold-glow:hover {
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--emerald);
+        }
+
+        nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            background: radial-gradient(circle at center, rgba(0, 255, 65, 0.05) 0%, rgba(0,0,0,0) 70%);
+            position: relative;
+        }
+
+        .hero-tagline {
+            color: var(--emerald);
+            font-weight: 700;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 7rem);
+            line-height: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            display: block;
+            background: linear-gradient(90deg, var(--gold), #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .cta-btn {
+            padding: 20px 40px;
+            background: var(--gold);
+            color: black;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 0px;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-btn:hover {
+            background: var(--emerald);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 255, 65, 0.4);
+        }
+
+        /* --- Cars Section --- */
+        .section-label {
+            padding: 100px 5% 50px;
+            text-align: center;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 0 5% 100px;
+        }
+
+        .car-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .car-card:hover {
+            border-color: var(--emerald);
+            transform: translateY(-10px);
+        }
+
+        .car-img {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .car-card:hover .car-img {
+            filter: grayscale(0%);
+        }
+
+        .car-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .car-specs {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+        }
+
+        .car-specs span {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .price {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            color: var(--emerald);
+        }
+
+        /* --- Benefits Bento Grid --- */
+        .benefits {
+            background: #0a0a0a;
+            padding: 100px 5%;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 200px;
+            gap: 20px;
+        }
+
+        .bento-item {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: var(--transition);
+        }
+
+        .bento-item:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .bento-item h4 {
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .bento-item p {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .item-large { grid-column: span 2; grid-row: span 1; }
+        .item-tall { grid-row: span 2; }
+
+        /* --- Footer --- */
+        footer {
+            padding: 100px 5% 50px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-logo {
+            font-size: 3rem;
+            font-family: 'Syne', sans-serif;
+            margin-bottom: 20px;
+            opacity: 0.2;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+            .item-large, .item-tall { grid-column: span 1; grid-row: span 1; }
+            nav { display: none; }
         }
     </style>
 </head>
-<body class="text-white overflow-x-hidden bg-black selection:bg-[#00FF41] selection:text-black">
+<body>
 
-    <!-- НАВИГАЦИЯ (Глассморфизм) -->
-    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/40 border-b border-white/10 px-6 py-4 flex justify-between items-center">
-        <div class="font-luxury text-2xl font-extrabold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white via-[#FFD700] to-[#00FF41]">
-            BENZO MOTORS
-        </div>
-        <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wider uppercase">
-            <a href="#catalog" class="hover:text-[#00FF41] transition">Коллекция</a>
-            <a href="#privilege" class="hover:text-[#FFD700] transition">Привилегии</a>
-            <a href="#club" class="hover:text-[#00FF41] transition">Закрытый Клуб</a>
-        </div>
-        <a href="#catalog" class="px-5 py-2 border border-[#00FF41] text-xs uppercase tracking-widest text-[#00FF41] font-bold hover:bg-[#00FF41] hover:text-black transition duration-300">
-            Каталог
-        </a>
-    </nav>
+    <header>
+        <div class="logo">BENZO<span>MOTORS</span></div>
+        <nav>
+            <a href="#">Коллекция</a>
+            <a href="#">Сервис</a>
+            <a href="#">Клуб</a>
+            <a href="#">Контакты</a>
+        </nav>
+    </header>
 
-    <!-- HERO СЕКЦИЯ -->
-    <section class="relative min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden">
-        <!-- Визуальный фон-градиент имитирующий ночной Дубай -->
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,255,65,0.08),transparent_50%)]"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,215,0,0.05),transparent_50%)]"></div>
-        
-        <!-- Задний план: Синематик плейсхолдер виллы с авто -->
-        <div class="absolute inset-0 z-0 opacity-40">
-            <img src="https://unsplash.com" class="w-full h-full object-cover filter brightness-50 contrast-125" alt="Dubai Villa">
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+    <section class="hero">
+        <div class="hero-tagline">Establishing Dominance</div>
+        <h1>Твой успех <span>можно потрогать.</span></h1>
+        <p style="max-width: 600px; margin-bottom: 40px; color: var(--text-dim);">
+            Не просто средство передвижения, а символ твоего превосходства. 
+            Benzo Motors — активы, которые покупают внимание.
+        </p>
+        <a href="#collection" class="cta-btn">Забрать свой трофей</a>
+    </section>
+
+    <div class="section-label" id="collection">
+        <h2 style="font-size: 2.5rem;">Актуальный Флот</h2>
+        <p style="color: var(--emerald);">Доступно к немедленной доставке</p>
+    </div>
+
+    <section class="cars-grid">
+        <!-- Car 1 -->
+        <div class="car-card">
+            <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800');"></div>
+            <h3>Ferrari SF90 Assetto</h3>
+            <div class="car-specs">
+                <div>HP: <span>1000</span></div>
+                <div>0-100: <span>2.5s</span></div>
+                <div>Top: <span>340km/h</span></div>
+            </div>
+            <div class="price">$650,000</div>
         </div>
 
-        <div class="relative z-10 text-center max-w-5xl mx-auto space-y-8 px-4">
-            <span class="text-[#FFD700] uppercase tracking-[0.4em] text-xs font-bold block animate-pulse">WASTEXZ EDITION</span>
-            <h1 class="font-luxury text-5xl md:text-8xl font-black uppercase tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">
-                Ты заслужил это <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00FF41] to-[#FFD700]">доминирование</span>
-            </h1>
-            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light tracking-wide">
-                Не просто средства передвижения. Мы продаем символы твоего абсолютного превосходства и материальные активы твоего успеха.
-            </p>
-            <div class="pt-4">
-                <a href="#catalog" class="gold-glow inline-block px-10 py-5 bg-gradient-to-r from-[#FFD700] to-[#b89700] text-black font-luxury font-black text-sm uppercase tracking-[0.2em] rounded-none shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    Join The Elite
-                </a>
+        <!-- Car 2 -->
+        <div class="car-card">
+            <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1631214499520-7a182641157d?auto=format&fit=crop&q=80&w=800');"></div>
+            <h3>Rolls-Royce Spectre</h3>
+            <div class="car-specs">
+                <div>Status: <span>Electric Lux</span></div>
+                <div>Vibe: <span>Silent Power</span></div>
+                <div>Year: <span>2024</span></div>
+            </div>
+            <div class="price">$480,000</div>
+        </div>
+
+        <!-- Car 3 -->
+        <div class="car-card">
+            <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&q=80&w=800');"></div>
+            <h3>Porsche 911 GT3 RS</h3>
+            <div class="car-specs">
+                <div>HP: <span>525</span></div>
+                <div>0-100: <span>3.2s</span></div>
+                <div>Style: <span>Track King</span></div>
+            </div>
+            <div class="price">$320,000</div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="section-label" style="padding-top: 0;">
+            <h2>Привилегии Benzo Motors</h2>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-item item-large">
+                <h4>Частная авиа-доставка</h4>
+                <p>Доставим ваш гиперкар в любую точку мира частным грузовым джетом в течение 48 часов.</p>
+            </div>
+            <div class="bento-item item-tall">
+                <h4>Полная анонимность</h4>
+                <p>Сделки через крипто-активы и закрытые фонды. Никаких лишних вопросов и публичных реестров.</p>
+            </div>
+            <div class="bento-item">
+                <h4>Закрытый клуб</h4>
+                <p>Доступ к ивентам в Дубае, Монако и Майами для владельцев.</p>
+            </div>
+            <div class="bento-item">
+                <h4>Тюнинг-ателье</h4>
+                <p>Индивидуальная доработка экстерьера под ваш персональный бренд.</p>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК МАШИН (БЕНТО-ГРИД) -->
-    <section id="catalog" class="py-32 px-4 max-w-7xl mx-auto">
-        <div class="mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-end">
-            <div>
-                <span class="text-[#00FF41] text-xs uppercase tracking-widest font-bold">Доступные Трофеи</span>
-                <h2 class="font-luxury text-4xl md:text-6xl font-black uppercase mt-2">Текущий Актив</h2>
-            </div>
-            <p class="text-gray-500 max-w-sm text-sm mt-4 md:mt-0">Машины, которые моментально покупают всё внимание улиц. Доступны к отгрузке сегодня.</p>
-        </div>
+    <section class="hero" style="height: 60vh; background: none;">
+        <h2 style="font-size: 3rem; margin-bottom: 20px;">Готов доминировать?</h2>
+        <p style="margin-bottom: 40px; color: var(--text-dim);">Оставь заявку, если твой баланс соответствует твоим амбициям.</p>
+        <a href="#" class="cta-btn" style="background: var(--emerald);">Связаться с консьержем</a>
+    </section>
 
-        <!-- Bento Grid Сетка карточек -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <!-- Карточка 1: Lamborghini -->
-            <div class="neon-glow group relative md:col-span-2 bg-[#090909] border border-white/5 overflow-hidden transition duration-500">
-                <div class="h-[400px] overflow-hidden relative">
-                    <img src="https://unsplash.com" class="w-full h-full object-cover filter grayscale contrast-120 group-hover:scale-105 group-hover:grayscale-0 transition duration-700" alt="Matte Black Lambo">
-                    <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-4 py-1 text-xs border border-[#00FF41] text-[#00FF41] uppercase font-bold tracking-widest">В наличии</div>
-                </div>
-                <div class="p-8 flex justify-between items-center">
-                    <div>
-                        <h3 class="font-luxury text-2xl font-bold uppercase tracking-wide">Lambo Aventador SVJ</h3>
-                        <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">Custom Matte Black Spec / 770 HP</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-xl font-bold font-luxury text-[#FFD700]">$840,000</span>
-                    </div>
-                </div>
-            </div>
+    <footer>
+        <div class="footer-logo">BENZO MOTORS</div>
+        <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2024 BENZO MOTORS. Вчера — мечта. Сегодня — твой актив.</p>
+    </footer>
 
-            <!-- Карточка 2: Porsche -->
-            <div class="neon-glow group bg-[#090909] border border-white/5 overflow-hidden transition duration-500">
-                <div class="h-[400px] overflow-hidden relative">
-                    <img src="https://unsplash.com" class="w-full h-full object-cover filter grayscale contrast-120 group-hover:scale-105 group-hover:grayscale-0 transition duration-700" alt="Porsche GT3">
-                    <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-4 py-1 text-xs border border-[#FFD700] text-[#FFD700] uppercase font-bold tracking-widest">SOLD (Продано)</div>
-                </div>
-                <div class="p-8">
-                    <h3 class="font-luxury text-2xl font-bold uppercase tracking-wide">Porsche 911 GT3 RS</h3>
-                    <div class="flex justify-between items-center mt-2">
-                        <span class="text-xs text-gray-500 uppercase tracking-widest">Weissach Package</span>
-                        <span class="text-sm line-through text-gray-600">$315,000</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Карточка 3: Rolls-Royce -->
-            <div class="neon-glow group bg-[#090909] border border-white/5 overflow-hidden transition duration-500">
-                <div class="h-[400px] overflow-hidden relative">
-                    <img src="https://unsplash.com" class="w-full h-full object-cover filter grayscale contrast-120 group-hover:scale-105 group-hover:grayscale-0 transition duration-700" alt="Rolls-Royce">
-                </div>
-                <div class="p-8">
-                    <h3 class="font-luxury text-2xl font-bold uppercase tracking-wide">RR Spectre Electric</h3>
-                    <div class="flex justify-between items-center mt-2">
-                        <span class="text-xs text-gray-500 uppercase tracking-widest">Black Badge / Gold Trim</span>
-                        <span class="text-xl font-bold font-luxury text-[#00FF41]">$560,000</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Карточка 4: Bugatti -->
-            <div class="neon-glow group relative md:col-span-2 bg-[#090909] border border-white/5 overflow-hidden transition duration-500">
-                <div class="h-[400px] overflow-hidden relative">
-                    <img src="https://unsplash.com" class="w-full h-full object-cover filter grayscale contrast-120 group-hover:scale-105 group-hover:grayscale-0 transition duration-700" alt="Chrome Bugatti">
-                    <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-4 py-1 text-xs border border-[#00FF41] text-[#00FF41] uppercase font-bold tracking-widest">Эксклюзив</div>
-                </div>
-                <div class="p-8 flex justify-between items-center">
-                    <div>
-                        <h3 class="font-luxury text-2xl font-bold uppercase tracking-wide">Bugatti Chiron Chrome</h3>
-                        <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">1 of 1 / Liquid Metal Finish</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-xl font-bold font-luxury text-[#FFD700]">$4,200,000</span>
-                    </div>
+</body>
+</html>
