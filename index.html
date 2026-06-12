@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BENZO MOTORS | Элита автопрома</title>
+    <title>BENZO MOTORS | Твой актив доминирования</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
             --emerald: #00FF41;
             --text: #ffffff;
             --text-dim: #a0a0a0;
-            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,6 +25,7 @@
             color: var(--text);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* --- Header --- */
@@ -57,9 +58,9 @@
 
         nav a:hover { color: var(--gold); }
 
-        /* --- Hero --- */
+        /* --- Hero Section --- */
         .hero {
-            height: 80vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -69,11 +70,20 @@
             background: radial-gradient(circle at 50% 50%, rgba(0, 255, 65, 0.08) 0%, transparent 60%);
         }
 
+        .hero p.tagline {
+            color: var(--emerald);
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
         .hero h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-size: clamp(2.5rem, 8vw, 6.5rem);
             line-height: 0.9;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             text-transform: uppercase;
         }
 
@@ -87,7 +97,18 @@
 
         @keyframes shine { to { background-position: 200% center; } }
 
-        /* --- Grid --- */
+        .hero .main-description {
+            max-width: 800px;
+            color: #fff;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            /* Стиль выделения как на скриншоте */
+            background: rgba(0, 100, 255, 0.15);
+            padding: 5px 15px;
+            border-radius: 4px;
+        }
+
+        /* --- Grid Section --- */
         .section-label { padding: 80px 5% 40px; text-align: left; }
         .section-label h2 { font-family: 'Syne', sans-serif; font-size: 2.5rem; text-transform: uppercase; }
         .section-label p { color: var(--emerald); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.7rem; }
@@ -113,27 +134,28 @@
             background: #111;
         }
 
-        .car-img {
+        .car-img-container {
             width: 100%;
             height: 260px;
-            background-size: cover;
-            background-position: center;
+            background: #1a1a1a; /* Цвет-заглушка если картинка не загрузится */
             margin-bottom: 20px;
-            filter: grayscale(100%) brightness(0.8);
-            transition: var(--transition);
+            overflow: hidden;
+            position: relative;
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .car-card:hover .car-img {
-            filter: grayscale(0%) brightness(1);
+        .car-img {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) brightness(0.7);
+            transition: var(--transition);
         }
 
-        .car-card h3 {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
+        .car-card:hover .car-img { filter: grayscale(0%) brightness(1); transform: scale(1.05); }
+
+        .car-card h3 { font-family: 'Syne', sans-serif; font-size: 1.4rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
 
         .car-specs {
             display: flex;
@@ -147,17 +169,7 @@
 
         .car-specs span { color: var(--gold); font-weight: 700; }
 
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .price {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.5rem;
-            color: var(--emerald);
-        }
+        .price { font-family: 'Syne', sans-serif; font-size: 1.5rem; color: var(--emerald); }
 
         .sold-tag {
             position: absolute;
@@ -165,23 +177,23 @@
             right: 20px;
             background: #ff0000;
             color: white;
-            padding: 5px 15px;
-            font-size: 0.7rem;
+            padding: 6px 18px;
+            font-size: 0.75rem;
             font-weight: 900;
             text-transform: uppercase;
-            transform: rotate(5deg);
+            transform: rotate(3deg);
             z-index: 10;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
         }
 
         /* --- Footer --- */
         footer {
-            padding: 60px 5%;
+            padding: 100px 5% 50px;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
             background: #000;
         }
 
-        .footer-logo { font-family: 'Syne', sans-serif; font-size: 4rem; opacity: 0.05; margin-bottom: 20px; }
+        .footer-logo { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 15vw, 10rem); opacity: 0.05; margin-bottom: 20px; display: block; }
 
         @media (max-width: 768px) {
             .cars-grid { grid-template-columns: 1fr; }
@@ -194,7 +206,7 @@
     <header>
         <div class="logo">BENZO<span>MOTORS</span></div>
         <nav>
-            <a href="#">Коллекция</a>
+            <a href="#collection">Коллекция</a>
             <a href="#">Сервис</a>
             <a href="#">Аукционы</a>
             <a href="#">Контакты</a>
@@ -202,24 +214,23 @@
     </header>
 
     <section class="hero">
-        <p style="color: var(--emerald); letter-spacing: 5px; margin-bottom: 15px; font-size: 0.8rem; font-weight: 700;">NEW MONEY COLLECTIVE</p>
-        <h1>Твой актив <span>доминирования.</span></h1>
-        <p style="max-width: 600px; color: var(--text-dim); font-size: 0.9rem;">
-            Мы не продаем машины. Мы обеспечиваем статус, который невозможно игнорировать. 
-            Лучшие гиперкары мира в наличии в Benzo Motors.
+        <p class="tagline">NEW MONEY COLLECTIVE</p>
+        <h1>ТВОЙ АКТИВ <span>ДОМИНИРОВАНИЯ.</span></h1>
+        <p class="main-description">
+            Мы не продаем машины. Мы обеспечиваем статус, который невозможно игнорировать. Лучшие гиперкары мира в наличии в Benzo Motors.
         </p>
     </section>
 
-    <div class="section-label">
+    <div class="section-label" id="collection">
         <p>Current Inventory</p>
         <h2>Флот в наличии</h2>
     </div>
 
-      <section class="cars-grid">
-        <!-- Машина 1 -->
+    <section class="cars-grid">
+        <!-- Ferrari -->
         <div class="car-card">
-            <div style="height: 220px; overflow: hidden; background: #111;">
-                <img src="https://yandex.net" style="width: 100%; height: 100%; object-fit: cover;" alt="Ferrari">
+            <div class="car-img-container">
+                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=1000&auto=format&fit=crop');"></div>
             </div>
             <h3>Ferrari SF90 Stradale</h3>
             <div class="car-specs">
@@ -227,15 +238,13 @@
                 <div>0-100: <span>2.5s</span></div>
                 <div>Top: <span>340km/h</span></div>
             </div>
-            <div class="price-row">
-                <div class="price">$650,000</div>
-            </div>
+            <div class="price">$650,000</div>
         </div>
 
-        <!-- Машина 2 -->
+        <!-- Rolls-Royce -->
         <div class="car-card">
-            <div style="height: 220px; overflow: hidden; background: #111;">
-                <img src="https://yandex.net" style="width: 100%; height: 100%; object-fit: cover;" alt="Rolls-Royce">
+            <div class="car-img-container">
+                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1637416067365-2b5e7e8fe8fa?q=80&w=1000&auto=format&fit=crop');"></div>
             </div>
             <h3>Rolls-Royce Spectre</h3>
             <div class="car-specs">
@@ -243,15 +252,13 @@
                 <div>Vibe: <span>CEO Mode</span></div>
                 <div>Year: <span>2024</span></div>
             </div>
-            <div class="price-row">
-                <div class="price">$520,000</div>
-            </div>
+            <div class="price">$520,000</div>
         </div>
 
-        <!-- Машина 3 -->
+        <!-- Porsche -->
         <div class="car-card">
-            <div style="height: 220px; overflow: hidden; background: #111;">
-                <img src="https://yandex.net" style="width: 100%; height: 100%; object-fit: cover;" alt="Porsche">
+            <div class="car-img-container">
+                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1000&auto=format&fit=crop');"></div>
             </div>
             <h3>Porsche 911 GT3 RS</h3>
             <div class="car-specs">
@@ -259,15 +266,13 @@
                 <div>0-100: <span>3.2s</span></div>
                 <div>Aero: <span>Active</span></div>
             </div>
-            <div class="price-row">
-                <div class="price">$380,000</div>
-            </div>
+            <div class="price">$380,000</div>
         </div>
 
-        <!-- Машина 4 -->
+        <!-- Lamborghini -->
         <div class="car-card">
-            <div style="height: 220px; overflow: hidden; background: #111;">
-                <img src="https://yandex.net" style="width: 100%; height: 100%; object-fit: cover;" alt="Lamborghini">
+            <div class="car-img-container">
+                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1000&auto=format&fit=crop');"></div>
             </div>
             <h3>Lamborghini Revuelto</h3>
             <div class="car-specs">
@@ -275,16 +280,14 @@
                 <div>HP: <span>1015</span></div>
                 <div>Mode: <span>Corsa</span></div>
             </div>
-            <div class="price-row">
-                <div class="price">$890,000</div>
-            </div>
+            <div class="price">$890,000</div>
         </div>
 
-        <!-- Машина 5 (SOLD) -->
-        <div class="car-card" style="position: relative;">
-            <div class="sold-tag" style="position: absolute; top: 10px; left: 10px; background: #ff0000; color: #fff; padding: 4px 8px; font-size: 10px; font-weight: bold; text-transform: uppercase; z-index: 20;">Sold / Продано</div>
-            <div style="height: 220px; overflow: hidden; background: #111;">
-                <img src="https://yandex.net" style="width: 100%; height: 100%; object-fit: cover;" alt="Mercedes">
+        <!-- Mercedes (SOLD) -->
+        <div class="car-card">
+            <div class="sold-tag">Sold / Продано</div>
+            <div class="car-img-container">
+                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1520031441872-46c4ee97b8d0?q=80&w=1000&auto=format&fit=crop');"></div>
             </div>
             <h3>Mercedes-AMG G63 Mansory</h3>
             <div class="car-specs">
@@ -292,15 +295,13 @@
                 <div>Armor: <span>B7+</span></div>
                 <div>Interior: <span>Tiffany</span></div>
             </div>
-            <div class="price-row">
-                <div class="price" style="color: #444; text-decoration: line-through;">$450,000</div>
-            </div>
+            <div class="price" style="color: var(--text-dim); text-decoration: line-through;">$450,000</div>
         </div>
 
-        <!-- Машина 6 -->
+        <!-- Bugatti -->
         <div class="car-card">
-            <div style="height: 220px; overflow: hidden; background: #111;">
-                <img src="https://yandex.net" style="width: 100%; height: 100%; object-fit: cover;" alt="Bugatti">
+            <div class="car-img-container">
+                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1600706432502-77a0e2e32770?q=80&w=1000&auto=format&fit=crop');"></div>
             </div>
             <h3>Bugatti Chiron Pur Sport</h3>
             <div class="car-specs">
@@ -308,17 +309,13 @@
                 <div>HP: <span>1500</span></div>
                 <div>Limit: <span>Exclusive</span></div>
             </div>
-            <div class="price-row">
-                <div class="price">$3,400,000</div>
-            </div>
+            <div class="price">$3,400,000</div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-logo">BENZO MOTORS</div>
-        <p style="color: var(--text-dim); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;">
-            Established for the 1%. 2024. No refunds for slow drivers.
-        </p>
+        <span class="footer-logo">BENZO MOTORS</span>
+        <p style="color: var(--emerald); font-weight: 900; letter-spacing: 3px; font-size: 0.8rem;">NO REFUNDS FOR SLOW DRIVERS.</p>
     </footer>
 
 </body>
