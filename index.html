@@ -97,15 +97,26 @@
 
         @keyframes shine { to { background-position: 200% center; } }
 
-        .hero .main-description {
-            max-width: 800px;
-            color: #fff;
-            font-size: 1.1rem;
-            line-height: 1.5;
-            /* Стиль выделения как на скриншоте */
-            background: rgba(0, 100, 255, 0.15);
-            padding: 5px 15px;
-            border-radius: 4px;
+        /* Найди это примерно на 80-90 строке кода */
+.hero .main-description {
+    max-width: 950px;
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    background: transparent; /* Обязательно поставь transparent здесь */
+    padding: 0;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+        .hero .extra-punch {
+            margin-top: 25px;
+            color: var(--gold);
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
 
         /* --- Grid Section --- */
@@ -213,24 +224,28 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <p class="tagline">NEW MONEY COLLECTIVE</p>
-        <h1>ТВОЙ АКТИВ <span>ДОМИНИРОВАНИЯ.</span></h1>
-        <p class="main-description">
-            Мы не продаем машины. Мы обеспечиваем статус, который невозможно игнорировать. Лучшие гиперкары мира в наличии в Benzo Motors.
-        </p>
-    </section>
+   <!-- Ищи это сразу после тега <header> ... </header> -->
 
-    <div class="section-label" id="collection">
-        <p>Current Inventory</p>
-        <h2>Флот в наличии</h2>
-    </div>
+<section class="hero">
+    <p class="tagline">NEW MONEY COLLECTIVE</p>
+    <h1>ТВОЙ АКТИВ <span>ДОМИНИРОВАНИЯ.</span></h1>
+    
+    <p class="main-description">
+        Мы не продаем машины. Мы обеспечиваем статус, который невозможно игнорировать. 
+        <br>Лучшие гиперкары мира в наличии в Benzo Motors.
+    </p>
+
+    <p class="extra-punch">
+        Ваша репутация движется быстрее, чем ваш спидометр. 
+        <br>Для тех, кто не ищет одобрения, а диктует свои правила.
+    </p>
+</section>
 
     <section class="cars-grid">
         <!-- Ferrari -->
         <div class="car-card">
             <div class="car-img-container">
-                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=1000&auto=format&fit=crop');"></div>
+                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1000&auto=format&fit=crop');"></div>
             </div>
             <h3>Ferrari SF90 Stradale</h3>
             <div class="car-specs">
@@ -244,7 +259,7 @@
         <!-- Rolls-Royce -->
         <div class="car-card">
             <div class="car-img-container">
-                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1637416067365-2b5e7e8fe8fa?q=80&w=1000&auto=format&fit=crop');"></div>
+                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1631214499520-7a182641157d?q=80&w=1000&auto=format&fit=crop');"></div>
             </div>
             <h3>Rolls-Royce Spectre</h3>
             <div class="car-specs">
@@ -258,7 +273,7 @@
         <!-- Porsche -->
         <div class="car-card">
             <div class="car-img-container">
-                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1000&auto=format&fit=crop');"></div>
+                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1611821064410-0d991479ec60?q=80&w=1000&auto=format&fit=crop');"></div>
             </div>
             <h3>Porsche 911 GT3 RS</h3>
             <div class="car-specs">
@@ -287,7 +302,7 @@
         <div class="car-card">
             <div class="sold-tag">Sold / Продано</div>
             <div class="car-img-container">
-                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1520031441872-46c4ee97b8d0?q=80&w=1000&auto=format&fit=crop');"></div>
+                <div class="car-img" style="background-image: url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1000&auto=format&fit=crop');"></div>
             </div>
             <h3>Mercedes-AMG G63 Mansory</h3>
             <div class="car-specs">
